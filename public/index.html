@@ -40,31 +40,31 @@
         </ol>
         <hr />
         <h2>Formulario de inscripción</h2>
-        <form>
+        <form onsubmit="event.preventDefault(); addPropuesta(); disableForm();">
             <div class="form-group">
                 <label for="nit">NIT</label>
-                <input type="text" class="form-control" id="nit" placeholder="Número de Identificación Tributaria">
+                <input id="nit" type="text" class="form-control" placeholder="Número de Identificación Tributaria">
             </div>
             <div class="form-group">
                 <label for="razonsocial">Razón Social</label>
-                <input type="text" class="form-control" id="razonsocial" placeholder="Nombre del participante">
+                <input id="razonsocial" type="text" class="form-control" placeholder="Nombre del participante">
             </div>
-            <button type="submit" class="btn btn-primary">Registrarse</button>
+            <button type="submit" class="btn btn-primary" value="Send" id="registro">Registrarse</button>
         </form>
         <hr />
         <h2>Listado de ofertas</h2>
         <!--Reemplace estos párrafos por las ofertas reales recibidas-->
-        <p>Consorcio F&R [Oferta no aceptada]</p>
-        <p>Grupo Fernánez Gómez [Oferta no aceptada]</p>
-        <p>Unión Temporal Sinergia [Oferta no aceptada]</p>
-        <p>Grupo DRFE [<strong>Oferta aceptada. Valor: $168.054.320</strong>]</p>
-        <button type="submit" class="btn btn-primary">Ofertar</button>
+        <button id="ofertar" type="submit" class="btn btn-primary" value="Send" onclick="addPropuesta();" disabled>Ofertar</button>
+        <div id="ofertas">
+            <p>Consorcio F&R [Oferta no aceptada]</p>
+        <div>
     </div>
 
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/js/main.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
         integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
         crossorigin="anonymous"></script>
