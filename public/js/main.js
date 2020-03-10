@@ -1,7 +1,8 @@
 let socket = io.connect("http://localhost:3000")
 
 socket.on('messages', data =>{
-    console.log(data);
+    console.log("en el main: " + data);
+    if(data.length>0 && data[data.length-1].aceptada == true) succes(data[data.length-1]);
     render(data);
 });
 
@@ -48,4 +49,9 @@ function thirtySec(){
     setTimeout(function(){
         document.getElementById("ofertar").disabled = false;
     }, 30000);
+}
+
+function succes(data){
+    document.getElementById("ofertar").disabled = true;
+    alert("Termino la subasta, la compañia ganadora es: " + data.razon + " con una oferta de: " + data.oferta);
 }
