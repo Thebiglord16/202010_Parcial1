@@ -42,3 +42,10 @@ function disableForm(){
     document.getElementById("registro").disabled = true;
     document.getElementById("ofertar").disabled = false;
 }
+
+function thirtySec(){
+    document.getElementById("ofertar").disabled = true;
+    setTimeout(function(){
+        document.getElementById("ofertar").disabled = false;
+    }, 30000);
+}
